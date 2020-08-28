@@ -10,14 +10,14 @@ export default function About(props) {
       </Head>
       <section className="flex-col mx-auto">
         <div className="text-center font-semibold text-4xl mx-auto">
-        <p>About Us</p>
+        <p>About MH App</p>
         </div>
         <div>
             <ul className="">
 
                 {/* Copy paste and edit */}
                 <div className="person text-center">
-                    <img src="/images/harry-potter.png" className="mx-auto my-3 rounded-full h-24 w-24 object-cover transform scale-110" width="150" height="150"/>
+                    <img src="images/harry-potter.png" className="mx-auto my-3 rounded-full h-20 w-20 object-cover transform scale-110" width="150" height="150"/>
                     <p className="font-semibold">Harry Potter</p>
                     <p>Hi, my name is Harry Potter and I'm a Wizard! I go to the Hogwarts School of Witchcraft and Wizardry and I will magic your anxiety away!</p>
 

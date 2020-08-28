@@ -6,6 +6,7 @@ A website to help people manage their anxiety.
 * About: /about
 * Community: /community
 * Therapists: /therapists
+* Our Team: /ourteam
 
 ## How to Run
 Clone source, run
