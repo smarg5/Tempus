@@ -9,7 +9,7 @@ A website to help people manage their anxiety.
 * Our Team: /ourteam
 
 ## How to Run
-Clone source, run
+Clone source, install node package manager using (nmp isntall)locally,  run
 ```
 npm run dev
 ```
