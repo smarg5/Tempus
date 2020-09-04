@@ -14,7 +14,7 @@ Clone source, install node package manager using (nmp isntall)locally,  run
 npm install # You only have to run this once or after you pull the repo.
 node server.js
 ```
-and navigate to https://localhost:3000 to view the development server.
+and navigate to https://localhost:3001 to view the development server.
 
 ## Software Used
 * [Next.js](https://nextjs.org/)
