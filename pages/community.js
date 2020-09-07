@@ -8,12 +8,12 @@ export default function Community(props) {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className="flex-col mx-auto">
-        <div className="text-center font-semibold text-4xl mx-auto">
+      <section className="flex-col mx-auto" style={{marginTop: "75px"}}>
+        <div className="text-center font-semibold text-4xl mx-auto" style={{border: "1px solid lightblue", borderRadius: "15px", height: "400px", padding:"75px 0 0 0"}}>
           <form action="./chat">
           <div class="form-control">
-          <label for="username">Username</label>
-          <input
+          <label for="username" style={{marginTop: "50px"}}>Username</label>
+          <input style={{border: "1px solid", borderRadius: "15px", marginLeft: "30px"}}
                   type="text"
                   name="username"
                   id="username"
@@ -22,17 +22,16 @@ export default function Community(props) {
           />
           </div>
           <div class="form-control">
-                  <label for="room">Room</label>
-                  <select name="room" id="room">
-                          <option value="JavaScript">JavaScript</option>
-                          <option value="Python">Python</option>
-                          <option value="PHP">PHP</option>
-                          <option value="C#">C#</option>
-                          <option value="Ruby">Ruby</option>
-                          <option value="Java">Java</option>
+                  <label for="room"style={{}}>Choose a Room</label>
+                  <select name="room" id="room" style={{border: "1px solid", borderRadius: "15px", marginLeft: "30px", width: "300px"}}>
+                          <option value="friends">Make friends</option>
+                          <option value="vent">Vent</option>
+                          <option value="advice">Advice</option>
+                          <option value="Music">Music</option>
+                          <option value="Gaming">Gaming</option>
                   </select>
           </div>
-          <button type="submit" class="btn">Join Chat</button>
+          <button type="submit" class="btn" style={{width: "200px", backgroundColor: "lightblue", borderRadius: "15px", marginTop: "50px"}}>Join Chat</button>
   </form>
         </div>
       </section>
