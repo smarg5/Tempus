@@ -1,5 +1,5 @@
 # MH App
-A website to help people manage their anxiety.
+A website to help people effectively manage their mental health (not a solution, just a resource :)).
 
 ## Pages
 * Index: /
@@ -9,7 +9,7 @@ A website to help people manage their anxiety.
 * Our Team: /ourteam
 
 ## How to Run
-Clone source, install node package manager using (nmp isntall)locally,  run
+Clone source, install node package manager using (nmp install)locally to the folder you are running the project in,  run using node server (instructions below)
 ```
 npm install # You only have to run this once or after you pull the repo.
 node server.js
