@@ -24,7 +24,7 @@ export default function Community(props) {
           <div class="form-control">
                   <label for="room"style={{}}>Choose a Room</label>
                   <select name="room" id="room" style={{border: "1px solid", borderRadius: "15px", marginLeft: "30px", width: "300px"}}>
-                          <option value="friends">Make friends</option>
+                          <option value="friends">Make frens</option>
                           <option value="vent">Vent</option>
                           <option value="advice">Advice</option>
                           <option value="Music">Music</option>
