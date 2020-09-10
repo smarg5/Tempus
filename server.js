@@ -25,7 +25,7 @@ const io = socketio(server);
 // Set static folder
 app.use(express.static(path.join(__dirname, 'pages')));
 
-const botName = 'ChatCord Bot';
+const botName = 'Tempus Chat';
 
 // Run when client connects
 io.on('connection', socket => {
@@ -35,7 +35,7 @@ io.on('connection', socket => {
     socket.join(user.room);
 
     // Welcome current user
-    socket.emit('message', formatMessage(botName, 'Welcome to ChatCord!'));
+    socket.emit('message', formatMessage(botName, 'Welcome to Tempus Chat!'));
 
     // Broadcast when a user connects
     socket.broadcast
@@ -78,7 +78,7 @@ io.on('connection', socket => {
   });
 });
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 
 nextApp.prepare().then(() => {
     app.get('*', (req, res) => {
