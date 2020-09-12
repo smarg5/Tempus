@@ -8,6 +8,8 @@ function Navbar({ router }) {
     { text: 'Mood Tracker', href: '/moodtracker' },
     { text: 'Community', href: '/community' },
     { text: 'Therapists', href: '/therapists' },
+    { text: 'LogIn', href: '/login'},
+    { text: 'SignUp', href: '/signup'},
 
     // { text: '', href: '' },
   ];
