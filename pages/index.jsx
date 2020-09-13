@@ -26,7 +26,8 @@ export default function Home(props) {
       <Navbar />
      {loggedIn && (
       <>
-        <p>Welcome {data.email}!</p>
+       <p>Welcome {data.email}!</p>
+        
         <button
           onClick={() => {
             cookie.remove('token');
@@ -37,7 +38,7 @@ export default function Home(props) {
       </>
     )}
 
-    
+{!loggedIn && (
       <section className="hero">
         <div className="container">
           <div className="text-wrapper">
@@ -51,14 +52,15 @@ export default function Home(props) {
             <Link href="/about"><a className="cta">Learn More</a></Link>
           </div> </div>
 
-          {!loggedIn && (
+         
         <>
           <Link href="/login">Login</Link>
           <p>or</p>
           <Link href="/signup">Sign Up</Link>
         </>
-      )}
+      
       </section>
+      )}
     </>
   );
 }
