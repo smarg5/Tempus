@@ -2,13 +2,17 @@ const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+require('dotenv').config()
+//const url = "mongodb+srv://mhApp:Tempus@cluster0.aodby.mongodb.net/test";
 const jwtSecret = 'SUPERSECRETE20220';
 
 const saltRounds = 10;
-const url = "mongodb+srv://mhApp:Tempus@cluster0.aodby.mongodb.net/test";
 const dbName = 'simple-login-db';
 
-const client = new MongoClient(url, {
+
+console.log(process.env.DATABASE_URL)
+
+const client = new MongoClient(process.env.DATABASE_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
