@@ -1,8 +1,22 @@
 import Link from 'next/link';
 import Navbar from '../components/Navbar';
 import Head from 'next/head'
+import fetch from 'isomorphic-unfetch';
+import useSWR from 'swr';
+import cookie from 'js-cookie';
 
-function Home() {
+export default function Home(props) {
+  const {data, revalidate} = useSWR('/api/me', async function(args) {
+    const res = await fetch(args);
+    return res.json();
+  });
+  if (!data) return <h1>Loading...</h1>;
+  let loggedIn = false;
+  if (data.email) {
+    loggedIn = true;
+  }
+
+
   return (
     <>
       <Head>
@@ -10,7 +24,20 @@ function Home() {
       </Head>
 
       <Navbar />
+     {loggedIn && (
+      <>
+        <p>Welcome {data.email}!</p>
+        <button
+          onClick={() => {
+            cookie.remove('token');
+            revalidate();
+          }}>
+          Logout
+        </button>
+      </>
+    )}
 
+    
       <section className="hero">
         <div className="container">
           <div className="text-wrapper">
@@ -22,13 +49,19 @@ function Home() {
             <p className="description">Join our supportive community of anxiety. You are not alone anymore.</p>
 
             <Link href="/about"><a className="cta">Learn More</a></Link>
-          </div>
+          </div> </div>
 
-
-        </div>
+          {!loggedIn && (
+        <>
+          <Link href="/login">Login</Link>
+          <p>or</p>
+          <Link href="/signup">Sign Up</Link>
+        </>
+      )}
       </section>
     </>
   );
 }
 
-export default Home;
+
+
