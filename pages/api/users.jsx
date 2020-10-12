@@ -4,7 +4,6 @@ const bcrypt = require('bcrypt');
 const v4 = require('uuid').v4;
 const jwt = require('jsonwebtoken');
 require('dotenv').config()
-//const url = "mongodb+srv://mhApp:Tempus@cluster0.aodby.mongodb.net/test";
 const jwtSecret = 'SUPERSECRETE20220';
 
 const saltRounds = 10;
