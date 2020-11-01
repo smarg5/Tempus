@@ -6,43 +6,37 @@ function Community() {
 	return (
 		<>
 			<Head>
-			  <title>About Us</title>
+			  <title>Community</title>
 			</Head>
 
 			<Navbar />
 
-                        <section className="flex-col mx-auto" style={{marginTop: "75px"}}>
-      
-        <div className="text-center font-semibold text-4xl mx-auto" style={{border: "1px solid lightblue", borderRadius: "15px", height: "400px", padding:"75px 0 0 0"}}>
-        <p className="description">
-				  <center>Enter your annoymous username to enter your chatroom. Please be respectful.</center>
-			      </p>
-          <form action="./chat">
+      <br></br><br></br>
+        <h2><center>Tell us, what's on your mind?</center> </h2>
+        <p><center>Don't worry, you don't have to log in to post, let it out</center></p>
+        <p><center>Please be respectful though! We are all here trying to help :)</center></p>
+
+          <form action="./app">
           <div class="form-control">
-         <center> <label for="username" style={{marginTop: "50px"}}>👥 Annoymous Username: </label></center>
-         <center> <input style={{border: "1px solid", borderRadius: "15px", marginLeft: "30px"}} 
+         <center> <label for="username" style={{marginTop: "50px"}}>Topic: </label></center>
+         <center> <input 
                   type="text"
                   name="username"
                   id="username"
-                  placeholder="Enter username..."
+                  placeholder="Mental Health Topic..."
                   required
           /></center>
-          <br></br>
+       
+          <div class="row">
+                  <p><center>Post:</center></p>
+                       <center><textarea placeholder="Enter your post" required id="initial_status" rows="3"></textarea>
+                       </center>       
+                       </div>
           </div>
-          <div class="form-control">
-                  <center><label for="room"style={{}}>🏡 Choose your Chat Room:</label></center>
-                 <center><select name="room" id="room" style={{border: "1px solid", borderRadius: "15px", marginLeft: "30px", width: "300px"}}>
-                          <option value="friends">Make friends</option>
-                          <option value="vent">Vent</option>
-                          <option value="advice">Advice</option>
-                          <option value="Music">Music</option>
-                          <option value="Gaming">Gaming</option>
-                  </select></center> 
-          </div>
-          <center>  <button type="submit" class="btn" style={{width: "500px", backgroundColor: "lightblue", borderRadius: "15px", marginTop: "50px"}}>Join Chat</button></center>
+
+  
+          <center>  <button type="submit" class="btn" style={{width: "500px", backgroundColor: "lightblue", borderRadius: "15px", marginTop: "50px"}}>Post</button></center>
   </form>
-        </div>
-      </section>
 		</>
 	);
 }
