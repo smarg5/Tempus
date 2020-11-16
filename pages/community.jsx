@@ -35,7 +35,7 @@ function Community() {
           </div>
 
   
-          <center>  <button type="submit" class="btn" style={{width: "500px", backgroundColor: "lightblue", borderRadius: "15px", marginTop: "50px"}}>Post</button></center>
+          <center>  <button type="submit" class="btn" style={{width: "100px", fontSize: "14px", border: "none", backgroundColor: "black", borderRadius: "5px", marginTop: "50px", padding: "10px", color: "white"}}>Post</button></center>
   </form>
 		</>
 	);

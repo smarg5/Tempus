@@ -154,3 +154,94 @@ a[href] {
 		padding-bottom: 10px;
 	}
 }
+
+.dropdown {
+     position: relative;
+     display: inline-block;
+ ul {
+     list-style-type: none;
+     margin: 0;
+     padding: 0;
+     top:45px;
+     right:0px;
+     width: 150px;
+     background-color: white;
+     font-weight:bold;
+     position: absolute;
+
+     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+     z-index: 1;
+}
+ li a {
+     color: #000;
+     text-decoration: none;
+}
+ li {
+     padding: 8px 16px;
+     border-bottom: 1px solid #e5e5e5;
+}
+ li:last-child {
+     border-bottom: none;
+}
+ li:hover {
+     background-color: #e5e5e5;
+     color: white;
+}
+ .button{
+     width:130px;
+     height:18px;
+     background-color: black ;
+     padding:12px;
+     border-radius:5px;
+	font-family: 'Source Sans Pro', sans-serif;
+	align-items: center;
+	vertical-align: center;
+     color:white;
+}
+ .button:before{
+     content:"";
+     position:absolute;
+     width:0px;
+     height:0px;
+     border: 10px solid;
+     border-color: white transparent transparent transparent;
+     right:6px;
+     top:18px;
+}
+}
+
+.saveBtn{
+     width:80px;
+     height:40px;
+     background-color: black ;
+     padding:12px;
+     border-radius:5px;
+	font-family: 'Source Sans Pro', sans-serif;
+	align-items: center;
+	vertical-align: center;
+	align-content: center;
+	border: none;
+	font-size: 12pt;
+	 color:white;
+	 margin-top: 10px;
+}
+textarea {
+	border: black 2px solid;
+	border-radius: 5px;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 18px;
+	padding: 10px;
+}
+
+.block {
+	display: block;
+	background:red;
+}
+.width-500 {
+	max-width: 500px;
+}
+
+.flex-col {
+	display: flex;
+	flex-direction: column;
+}

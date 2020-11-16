@@ -8,8 +8,11 @@ const next = require('next');
 const dev = process.env.NODE_ENV != 'production';
 const nextApp = next({ dev });
 const nextHandler = nextApp.getRequestHandler();
+const bodyParser = require('body-parser');
 
-let port = 3000;
+var ml = require('sentiment');
+
+let port = 4001;
 
 const {
   userJoin,
@@ -26,6 +29,16 @@ const io = socketio(server);
 app.use(express.static(path.join(__dirname, 'pages')));
 
 const botName = 'Tempus Chat';
+
+app.use(bodyParser.json());
+
+var sentiment = new ml();
+
+app.post('/sentiment', async (req, res) => {
+  var classification = sentiment.analyze(req.body.text)
+  res.send(classification)
+
+})
 
 // Run when client connects
 io.on('connection', socket => {
@@ -78,7 +91,7 @@ io.on('connection', socket => {
   });
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4001;
 
 nextApp.prepare().then(() => {
     app.get('*', (req, res) => {
@@ -94,4 +107,5 @@ nextApp.prepare().then(() => {
     })
 })
 
-server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+// server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
