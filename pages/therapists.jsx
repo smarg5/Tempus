@@ -2,80 +2,120 @@ import Head from 'next/head'
 import Navbar from '../components/Navbar';
 import utilStyles from '../styles/utils.module.scss'
 import therapistStyles from '../styles/therapists.module.scss'
+import React, {Component} from 'react';
+import { useHistory, Redirect } from 'react-router-dom';
+import Maryland from './therapists_state/md_therapists.jsx'
 
-function Therapists(props) {
-  return (
-    <>
-      <Head>
-        <title>About us</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-      </Head>
-     
-      <Navbar />
+class Therapists extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { 
+            table: [
+                ["Name", "Profession", "Contact Info"]
+            ], 
+            text: null
+        };
+        this.textName = this.textName.bind(this);
+    }
+    
+    addRow = row => {
+        console.log(this.state.text)
+        if (this.state.text === 'md'){
+            const table = this.state.table.slice(0, 1)
+            var i = 0
+            for (i = 0; i < 4; i++) {
+                table.push(row[i])
+            }
+            this.setState({ table })
+        } else if (this.state.text === 'ak') {
+            const table = this.state.table.slice(0, 1)
+            var i = 0
+            for (i = 4; i < 7; i++) {
+                table.push(row[i])
+            }
+            this.setState({ table })
+        }
+    }
 
-      <section>
-        <h1 className={therapistStyles.Heading}> LINKS TO FIND NEARBY THERAPISTS </h1>
+    textName(event){
+        const text = event.target.value
+        console.log(text)
+        this.setState({ text })
+    }
+
+    render(){
+        const headers = this.state.table.slice(0, 1)[0]
+        const rows = this.state.table.slice(1)
+
+        return (
+            <>
+            <Head>
+                <title>Therapists</title>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            </Head>
         
-        <div className={therapistStyles.links}>
-          <a href="https://www.psychologytoday.com/us">Psychology Today</a>
-          <br></br>
-          <br></br>
-          <a href="https://www.therapytribe.com">Therapy Tribe</a>
-          <br></br>
-          <br></br>
-          <a href="https://www.online-therapy.com">Online Therapy</a>
-          <br></br>
-          <br></br>
-          <a href="https://healthsapiens.com">Health Sapiens</a>
-          <br></br>
-          <br></br>
-          <a href="https://www.doctorondemand.com">Doctor on Demand</a>
-          <br></br>
-          <br></br>
-          <a href="https://mdlnext.mdlive.com/home?utm_expid=.xvgWAya3TgCWwG8xCzuolA.1&utm_referrer=https%3A%2F%2Fwww.onlinetherapy.reviews%2F">MD Live</a>
-          <br></br>
-          <br></br>
-          <a href="https://www.goodtherapy.org">Good Therapy</a>
-          <br></br>
-          <br></br>
-          <a href="https://www.theravive.com/cities/united-states.aspx">Theravive</a>
-          <br></br>
-          <br></br>
-          <a href="https://www.helpguide.org/articles/mental-health/finding-a-therapist-who-can-help-you-heal.htm">Help Guide</a>
-          <br></br>
-          <br></br>
-          <a href="https://www.talkspace.com/therapists?utm_source=google&utm_medium=semnb&utm_campaign=Search_Google_NB_Directory_Desktop_BMM&utm_content=FEB2020-40P-V2-CAPS&utm_term=therapy%20in&gclid=Cj0KCQjwt4X8BRCPARIsABmcnOoxEBZtu7I4YsTLG7aPJRDO7KhDlQyc_hYcbg_o4zHi831YNRo2jeYaAuArEALw_wcB">Talk Space</a>
-          <br></br>
-          <br></br>
-          <a href="https://www.betterhelp.com/helpme/?utm_source=AdWords&utm_medium=Search_PPC_c&utm_term=therapists_e&utm_content=72543956114&network=g&placement=&target=&matchtype=e&utm_campaign=1844876546&ad_type=text&adposition=&gclid=Cj0KCQjwt4X8BRCPARIsABmcnOoi-BVmOYeFctwgODLc1I1L8bAoryVAUUGBA882rxowzvMFX4MoTdQaAh0xEALw_wcB&not_found=1&gor=helpme">Better Help</a>
-          <br></br>
-          <br></br>
-          <a href="https://www.regain.us/?transaction_id=1024e1e62b31556c5bfdeb6c9a2df8&utm_source=affiliate&utm_campaign=About%2C+Inc.+dba+Dotdash&utm_medium=Mac+OS+X&utm_content=&utm_term=%5Baffiliate_source%5D&not_found=1&gor=home">Regain</a>
-          <br></br>
-          <br></br>
-          <a href="https://www.teencounseling.com/parent_start/?transaction_id=1029b0950e9c57f1057be680106925&utm_source=affiliate&utm_campaign=About%2C+Inc.+dba+Dotdash&utm_medium=Mac+OS+X&utm_content=&utm_term=%7BSource%7D&not_found=1">Teen Counseling</a>
-          <br></br>
-          <br></br>
-          <a href="https://www.pridecounseling.com/start/?transaction_id=102320491871120544a1afe48bfecc&utm_source=affiliate&utm_campaign=1510&utm_medium=Mac+OS+X&utm_content=&utm_term=%7BSource%7D&not_found=1&gor=start_go&go=true">Pride Counseling</a>
-          <br></br>
-          <br></br>
-          <a href="https://business.amwell.com">Amwell</a>
-          <br></br>
-          <br></br>
-          <a href="https://www.7cups.com/member/">7 Cups of Tea</a>
-        </div>
-        
-        <div className={therapistStyles.searchBox}> 
-          <a id = "button" href="#" class="btn btn-success btn-block search-button">
-            <p> &#128157;</p>
-          </a>
-        </div> 
+            <Navbar />
 
-      {/* <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> */}
-   
-      </section> 
-      </>
-  )
+            <section className="hero">
+
+                <div className="text-wrapper w-full">
+                    <div className={therapistStyles.findTherapistBox}>
+                        <p> FIND A THERAPIST </p>
+                    </div>
+
+                    <div className={therapistStyles.stateBox}>
+                        <input className={therapistStyles.placeholder} onChange={this.textName} placeholder="ENTER STATE'S ACRONYM" required ></input>
+                    </div>
+
+                    <div className={therapistStyles.searchBox}> 
+                        <AddRowButton addRow = {this.addRow} />
+                        
+                        
+                    </div> 
+                </div>
+            </section> 
+            <section>
+                <table className={therapistStyles.table}>
+                    <TableHeaders headers = {headers} />
+                    <tbody>
+                        {
+                            rows.map(row => <TableRow row={row}/>)
+                        }
+                    </tbody>
+                </table>
+                
+            </section>
+            </>
+        );
+    }
+    
 }
+
+const TableHeaders = ({ headers }) =>
+  <thead>
+    <tr>
+      { headers.map(header => <th>{ header }</th>) }
+    </tr>
+  </thead>
+
+const TableRow = ({ row }) =>
+  <tr>
+    { row.map(cell => <td>{cell}</td>) }
+  </tr>
+
+const AddRowButton = ({ addRow}) =>
+  <button onClick={() => { 
+        addRow([['Robert Castle| M.S.| LCPC| NCC', 'Licensed Clinical Professional Counselor', 'Towson| Maryland 21204 | 410-702-5138'],
+                ['Becky Roth| MSW| LMSW| CPC', 'Career Counselor| Career Coach| and Life Coach', '11904 F Darnestown Road| Gaithersburg| Maryland 20878 | 240-233-4188'],
+                ['Mary Beasley| M.Min| LCCC', 'Licensed Clinical Christian Counselor', '704 Chichester Lane| Silver Spring| Maryland 20904 | 301-785-0531'],
+                ['Gabriel Newman| Ph.D.', 'Licensed Clinical Psychologist', '2328 W Joppa Road| Suite 10| Lutherville| Maryland 21093 | 410-828-7792'],
+                ['John Rhead| Ph.D.| CGP', 'Licensed Psychologist', '5560 Sterrett Pl. #205| Columbia| Maryland 21044 | (410) 997-5060'],
+                ['Elaine Klionsky| J.D.| Ph.D.| CGP', 'Psychologist', '6917 Arlington Road| Bethesda| Maryland 20814 | 301-641-8406'],
+                ['Bertha White| MSW| LCSW-C', 'Licensed Certified Social Worker - Clinical', 'Lakeview Professional Park| 605 Post Office Road| Suite 301| Waldorf| Maryland 20602 | 240-346-0934']
+                ])
+        }}>
+    SEARCH
+  </button>
+
 export default Therapists;
