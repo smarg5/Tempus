@@ -21,19 +21,22 @@ class Therapists extends Component {
     
     addRow = row => {
         console.log(this.state.text)
-        if (this.state.text === 'md'){
+        if (this.state.text === 'md' || this.state.text === 'MD' || this.state.text === 'Md'){
             const table = this.state.table.slice(0, 1)
             var i = 0
             for (i = 0; i < 4; i++) {
                 table.push(row[i])
             }
             this.setState({ table })
-        } else if (this.state.text === 'ak') {
+        } else if (this.state.text === 'ak' || this.state.text === 'Ak' || this.state.text === 'AK' ) {
             const table = this.state.table.slice(0, 1)
             var i = 0
             for (i = 4; i < 7; i++) {
                 table.push(row[i])
             }
+            this.setState({ table })
+        } else {
+            const table = this.state.table.slice(0, 1)
             this.setState({ table })
         }
     }
