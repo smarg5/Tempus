@@ -2,9 +2,9 @@
 
 .findTherapistBox {
   position: absolute;
-  width: 280px;
-  height: 49px;
-  left: 102px;
+  width: 350px;
+  height: 50px;
+  left: 170px;
   top: 156px;
   background: #29C9BF;
 
@@ -41,16 +41,17 @@
   position: absolute;
   width: 780px;
   height: 50px;
-  left: 400px;
+  left: 500px;
   top: 156px;
   background: #f0f0f1;
 }
 
 .searchBox {
+  font-family: 'Roboto', sans-serif;
   position: absolute;
   width: 95px;
   height: 50px;
-  left: 1089px;
+  left: 1280px;
   top: 156px;
   text-align: center;
   line-height: 8px;
@@ -59,14 +60,40 @@
 }
 
 .placeholder { 
+  font-family: 'Roboto', sans-serif;
   background: #f0f0f1;
   color: #29C9BF;
-  width: 600px;
-  height: 55px;
+  width: 700px;
+  height: 50px;
   position: absolute;
   font-style: normal;
   font-size: 20px;
   text-align: center;
   border: #f0f0f1;
 
+}
+
+.table {
+  font-family: 'Roboto', sans-serif;
+  border-collapse: collapse;
+  width: 100%
+  
+}
+.th {
+  text-align: center;
+  border: black;
+  color: black;
+  font-size: 30px;
+}
+.th, .td {
+  height: 50px;
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+  
+}
+.hover {
+  background-color: gainsboro;
+}
+.nth {
+  background-color: #f2f2f2;
 }
