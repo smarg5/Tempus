@@ -4,7 +4,6 @@ import utilStyles from '../styles/utils.module.scss'
 import therapistStyles from '../styles/therapists.module.scss'
 import React, {Component} from 'react';
 import { useHistory, Redirect } from 'react-router-dom';
-import Maryland from './therapists_state/md_therapists.jsx'
 
 
 class Therapists extends Component {
