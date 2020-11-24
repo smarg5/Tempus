@@ -3,7 +3,6 @@ import Navbar from '../components/Navbar';
 import utilStyles from '../styles/utils.module.scss'
 import therapistStyles from '../styles/therapists.module.scss'
 import React, {Component} from 'react';
-import { useHistory, Redirect } from 'react-router-dom';
 
 
 class Therapists extends Component {
