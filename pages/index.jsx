@@ -42,12 +42,13 @@ export default function Home(props) {
       <section className="hero">
         <div className="container">
           <div className="text-wrapper">
-            <br></br>
+
             <h1 className="title">Hi there, 
             <br></br>Welcome to Tempus <span class="wave">👋</span>
           
             </h1>
-            <p className="description">Join our supportive community of anxiety. You are not alone anymore.</p>
+            <p className="description">Join our supportive community. You are not alone.</p>
+            <p className="description">Interact with our mood tracker, blog platform, therapist locator, and sign up to store your information!</p>
 
             <Link href="/about"><a className="cta">Learn More</a></Link>
           </div> </div>
