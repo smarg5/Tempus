@@ -5,6 +5,7 @@ A website to help people manage their anxiety.	A website to help people effectiv
 First, run the development server:
 
 npm install
+npm i react-media-hook --save
 
 npm run dev
 
