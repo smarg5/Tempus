@@ -2,6 +2,7 @@ const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const passport = require('passport')
 require('dotenv').config()
 
 const jwtSecret = 'SUPERSECRETE20220';
@@ -13,6 +14,36 @@ const dbName = 'simple-login-db';
 console.log(process.env.DATABASE_URL)
 
 
+function initialize(passport, getUserByEmail, getUserById) {
+  const authenticateUser = async (email, password, done) => {
+    const user = getUserByEmail(email)
+    if (user == null) {
+      return done(null, false, { message: 'No user with that email' })
+    }
+
+    try {
+      if (await bcrypt.compare(password, user.password)) {
+        return done(null, user)
+      } else {
+        return done(null, false, { message: 'Password incorrect' })
+      }
+    } catch (e) {
+      return done(e)
+    }
+  }
+  passport.use(new LocalStrategy({ usernameField: 'email' }, authenticateUser))
+  passport.serializeUser((user, done) => done(null, user.id))
+  passport.deserializeUser((id, done) => {
+    return done(null, getUserById(id))
+  })
+}
+
+initialize(
+  passport,
+  findUser,
+  findUserById
+)
+
 const client = new MongoClient(process.env.DATABASE_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -21,6 +52,11 @@ const client = new MongoClient(process.env.DATABASE_URL, {
 function findUser(db, email, callback) {
   const collection = db.collection('user');
   collection.findOne({email}, callback);
+}
+
+function findUserById(db, id, callback) {
+  const collection = db.collection('user');
+  collection.findOne({id}, callback);
 }
 
 function authUser(db, email, password, hash, callback) {

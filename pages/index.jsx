@@ -53,11 +53,11 @@ export default function Home(props) {
           </div> </div>
 
          
-        <>
+        {/* <>
           <Link href="/login">Login</Link>
           <p>or</p>
           <Link href="/signup">Sign Up</Link>
-        </>
+        </> */}
       
       </section>
       )}

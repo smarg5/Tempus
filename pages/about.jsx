@@ -27,7 +27,7 @@ Our Tempus team is dedicated to building a safe digital place for your mental he
    <div class="card card--split-1">
     <div class="card__pic">
      <span class="card__placeholder">
-	 <img src="/public//images/kateAvatar.png"></img></span>
+	 <img src="../images/kate.png" width="100px" height="100px"></img></span>
     </div>
     <h2 class="card__headline">Abhik</h2>
     <h5 class="card__subheading">Software Engineer</h5>
