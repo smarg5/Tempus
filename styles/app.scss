@@ -221,7 +221,7 @@ a[href] {
 }
 
 .hero {
-	padding-top: 100px;
+	// padding-top: 100px;
 	padding-bottom: 100px;
 
 	.container {
@@ -308,6 +308,10 @@ a[href] {
 		padding-bottom: 10px;
 	}
 }
+
+ li {
+	 list-style-type: none;
+ }
 
 .dropdown {
      position: relative;
@@ -398,4 +402,8 @@ textarea {
 .flex-col {
 	display: flex;
 	flex-direction: column;
+}
+
+.dayswrapper {
+	max-width: 500px;
 }

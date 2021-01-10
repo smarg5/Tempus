@@ -1,0 +1,133 @@
+.card {
+    box-shadow: 0px 4px 12px 0px rgba(0,0,0,0.2);
+    width: 500px;
+    border-radius: 15px;
+    padding: 10px 20px;
+    margin: 20px 0px;
+    margin-right: 0;
+}
+
+.flexRow {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.tag {
+    border-radius: 20px;
+
+    background: black;
+    color: white;
+
+    padding: 4px 12px;
+    margin: 5px;
+    
+}
+
+.activeBtn {
+    color: white !important;
+    background: black;
+    box-shadow: transparent;
+    text-decoration: None;
+    border: black solid 2px;
+    border-radius: 20px;
+    padding: 12px;
+    padding: 4px 12px;
+    margin: 5px;
+    font-size: medium;
+    transition: ease .4s all;
+    outline: none !important;
+
+  
+    &:hover, &:active {
+    //   border: $accent solid 2px;
+    //   background: $accent;
+      cursor: pointer;
+
+    //   span {
+    //     padding-right: 20px;
+    //   }
+
+    //   span::after {
+    //     opacity: 1;
+    //     right: 0;
+    //   }
+    }
+
+}
+
+.inactiveBtn {
+    color: black !important;
+    background: white;
+    box-shadow: transparent;
+    text-decoration: None;
+    border: black solid 2px;
+    border-radius: 20px;
+    padding: 12px;
+    padding: 4px 12px;
+    margin: 5px;
+    font-size: medium;
+    transition: ease .4s all;
+    outline: none !important;
+
+  
+    &:hover, &:active {
+    //   border: $accent solid 2px;
+    //   background: $accent;
+      cursor: pointer;
+
+    //   span {
+    //     padding-right: 20px;
+    //   }
+
+    //   span::after {
+    //     opacity: 1;
+    //     right: 0;
+    //   }
+    }
+
+}
+
+.addTag {
+    color: black !important;
+    background: white;
+    box-shadow: transparent;
+    text-decoration: None;
+    border: black solid 2px;
+    border-radius: 20px;
+    padding: 12px;
+    padding: 4px 12px;
+    margin: 5px;
+    font-size: medium;
+    transition: ease .4s all;
+    outline: none !important;
+
+}
+
+.dayBox {
+    resize: vertical;
+    min-height: 100px;
+    width: 500px;
+}
+
+.dropdown {
+    background: none;
+    box-shadow: transparent;
+    text-decoration: None;
+    // border: black solid 2px;
+    border: none;
+    font-size: large;
+    margin: 20px 0px;
+    padding: 0;
+    color: black;
+    cursor: pointer;
+}
+
+.splitScreen {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.charts {
+    max-width: 500px;
+    margin-left: 130px;
+}
