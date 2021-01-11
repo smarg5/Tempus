@@ -942,7 +942,7 @@ function connect(options) {
       error.name = err.name;
       error.stack = err.stack; // __NEXT_DIST_DIR is provided by webpack
 
-      (0, _sourceMapSupport.rewriteStacktrace)(error, "E:\\ORGANIZER\\side_proj\\Tempus\\.next");
+      (0, _sourceMapSupport.rewriteStacktrace)(error, "/Users/vinay.prasad/Desktop/dev/mh-app/Tempus/.next");
       return error;
     }
   };

@@ -12,6 +12,7 @@
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
+    "i": "^0.3.6",
     "isomorphic-unfetch": "^3.0.0",
     "js-cookie": "^2.2.1",
     "jsonwebtoken": "^8.5.1",
@@ -20,12 +21,19 @@
     "moment": "^2.29.1",
     "mongodb": "^3.6.2",
     "next": "9.3.5",
+<<<<<<< HEAD
     "next-auth": "^3.1.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-flip-move": "^3.0.4",
     "react-media-hook": "^0.4.9",
     "recharts": "^1.8.5",
+=======
+    "npm": "^6.14.10",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-media-hook": "^0.4.9",
+>>>>>>> da8f8eebe9c5ef47f97fd06e4c7a2460a91a117e
     "sass": "^1.26.10",
     "sentiment": "^5.0.2",
     "socket.io": "^2.3.0",
