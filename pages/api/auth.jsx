@@ -81,6 +81,11 @@ export default (req, res) => {
       const email = req.body.email;
       const password = req.body.password;
 
+      passport.authenticate('local', {
+        successRedirect: '/',
+        failureRedirect: '/login'
+      })
+
       findUser(db, email, function(err, user) {
         if (err) {
           res.status(500).json({error: true, message: 'Error finding User'});

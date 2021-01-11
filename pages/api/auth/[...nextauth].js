@@ -1,6 +1,17 @@
 import NextAuth from 'next-auth'
 import Providers from 'next-auth/providers'
 
+// const dbName = 'simple-login-db';
+// const client = new MongoClient(process.env.DATABASE_URL, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// });
+
+// function findUser(db, email, callback) {
+//   const collection = db.collection('user');
+//   collection.findOne({email}, callback);
+// }
+
 const options = {
     providers: [
         Providers.Credentials({
@@ -15,10 +26,24 @@ const options = {
             },
             authorize: async (credentials) => {
             const user = (credentials) => {
-                // You need to provide your own logic here that takes the credentials
-                // submitted and returns either a object representing a user or value
-                // that is false/null if the credentials are invalid.
-                // e.g. return { id: 1, name: 'J Smith', email: 'jsmith@example.com' }
+                // var ret
+                // client.connect(function(err) {
+                //     assert.equal(null, err);
+                //     console.log('Connected to MongoDB server =>');
+                //     const db = client.db(dbName);
+
+                    
+                //     findUser(db, email, function(err, user) {
+                //         if (err) {
+                //             ret = null
+                //         }
+                //         ret = user
+                //     })
+                // // You need to provide your own logic here that takes the credentials
+                // // submitted and returns either a object representing a user or value
+                // // that is false/null if the credentials are invalid.
+                // // e.g. return { id: 1, name: 'J Smith', email: 'jsmith@example.com' }
+                // })
                 return null
             }
             if (user) {
@@ -30,6 +55,10 @@ const options = {
             }
         })
     ],
+
+    session: {
+        jwt: true
+    },
 
     database: process.env.DATABASE_URL,
 }
