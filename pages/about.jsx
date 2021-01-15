@@ -10,14 +10,14 @@ function About() {
 			</Head>
 			<Navbar />
 			<section className="hero">
-			  <div className="container">
+			  <div className="container center">
 			    <div className="text-wrapper w-full">
 			      <h1 className="title">About Us</h1>
 			      <p className="description">
 				  Tempus.  
 			      </p>
             <p className="description">
-				  In latin this means Time. The tempus team strives to create a healthy ecosystem where it is encouraged to share one's experiences and build connections through authenticity. 
+				  In Latin this means Time. The Tempus team strives to create a healthy ecosystem where it is encouraged to share one's experiences and build connections through authenticity. 
 			      </p>
 				  <p className="description">
            Our team is dedicated to building a platform for people of all ages to share and track their experiences and provide resources regarding mental health. 
@@ -30,11 +30,12 @@ function About() {
       We are a group of student developers who wanted to create a safe digital place for your mental health. Check us out!
       </p>
 		</div>
-		<div class="container">
+		<div class="container center">
    <div class="card card--split-1">
     <div class="card__pic">
      <span class="card__placeholder">
-	 <img src="../images/kate.png" width="100px" height="100px"></img></span>
+     <img src="/images/abhik.png" alt="me" width="228" height="228" />
+     </span>
     </div>
     <h2 class="card__headline">Abhik</h2>
     <h5 class="card__subheading">Software Engineer</h5>

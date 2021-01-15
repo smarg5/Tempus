@@ -1,36 +1,30 @@
-import Link from 'next/link';
 import Navbar from '../components/Navbar';
-import Card from '../components/dropdown';
 import Head from 'next/head'
 import React, { Component, useState } from 'react';
-import Dropdown from '../components/dropdown';
 import moodStyles from '../styles/moodtracker.module.scss'
 import axios from 'axios';
 import useSWR from 'swr';
-import cookie from 'js-cookie';
 import {PieChart, Pie, Tooltip, BarChart, XAxis, YAxis, Legend, Bar} from 'recharts';
-import { stringify } from 'uuid';
 import FlipMove from "react-flip-move"
-import { duration } from 'moment';
 const moment = require('moment');
+import { useSession, getSession } from 'next-auth/client'
+import {useRouter} from 'next/router';
+import { LogIn } from 'react-feather';
 
-/* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
-// function myFunction() {
-//   document.getElementById("myDropdown").classList.toggle("show");
-// }
+export default function MoodTracker(props) {
+  const [ session, loading ] = useSession()
 
-// // Close the dropdown menu if the user clicks outside of it
-// window.onclick = function(event) {
-//   if (!event.target.matches('.dropbtn')) {
-//     var dropdowns = document.getElementsByClassName("dropdown-content");
-//     var i;
-//     for (i = 0; i < dropdowns.length; i++) {
-//       var openDropdown = dropdowns[i];
-//       }
-//     }
-//   }
-// }
+  if (typeof window !== 'undefined' && loading) return null
+  if (!session) {
+	  return <LogIn />
+
+  }
+
+  return (
+	  <MoodTrackerPage session={session} {...props} />
+  )
+}
+
 
 function StackedBarChart(props) {
 	return (
@@ -61,8 +55,6 @@ function Day(props) {
 			<div className={moodStyles.flexRow} >
 				{day.mood.map((mood) => <div className={moodStyles.tag}>{mood}</div>)}
 			</div>
-			{/* {day.activities.map((mood) => <p>{mood}</p>)} */}
-
 			<p>{day.content}</p>
 		</div>
 	)
@@ -92,14 +84,13 @@ function DataPieChart(props) {
     );
 }
 
-class MoodTracker extends Component {
+class MoodTrackerPage extends Component {
 	constructor(props) {
 		super(props);
 
 		this.selectState = this.selectState.bind(this);
 		this.handleTextChange = this.handleTextChange.bind(this);
 		this.save = this.save.bind(this);
-		this.validateLogin = this.validateLogin.bind(this);
 		this.getDays = this.getDays.bind(this);
 		this.analyzeMoods = this.analyzeMoods.bind(this);
 		this.changeMood = this.changeMood.bind(this);
@@ -108,6 +99,7 @@ class MoodTracker extends Component {
 		this.changeActivity = this.changeActivity.bind(this);
 
 		this.state = {
+			session: this.props.session,
 			selectedActivities: [],
 			selectedMoods: [],
 			options: ["😀 Happy", "☹️ Sad", "😟 Worried", "😰 Anxious", "😯 Excited", "🥺 Hopeful", "😫 Stressed"],
@@ -136,18 +128,9 @@ class MoodTracker extends Component {
 		})
 	}
 
-	
-	async validateLogin() {
-		// var data
-		// var revalidate
-		var data = useSWR('/api/me', async function(args) {
-			const res = await fetch(args);
-			return res.json();
-		});
-	}
-
 	async getDays() {
 		var body = {
+			userId: this.state.session.user.email,
 			test: "this does not matter"
 		}
 		const attempt = await axios.post('http://localhost:3000/api/moodtracker/gethistory', body, {
@@ -163,6 +146,9 @@ class MoodTracker extends Component {
 		}
 
 		let days = attempt.data.days
+		if (days.length == 0) {
+			return;
+		}
 
 		let lastWeek = new Date()
 		lastWeek.setDate(lastWeek.getDate() - 7)
@@ -275,33 +261,31 @@ class MoodTracker extends Component {
 	}
 
 	async save() {
+		if (!this.state.currentDayText && this.state.selectedMoods.length == 0 && this.state.selectedActivities.length == 0) {
+			alert('Please fill out your day before submitting!')
+			return;
+		}
 		var body = {
-			content: this.state.currentDayText,
+			userId: this.state.session.user.email,
+			content: this.state.currentDayText ? this.state.currentDayText : "",
 			moods: this.state.selectedMoods,
 			activities: this.state.selectedActivities
 		}
-		const attempt = await axios.post('http://localhost:3000/api/moodtracker/sentiment', body, {
-			content: this.state.currentDayText,
-			mood: this.state.selectedMoods
-		});
-		const attempttwo = await axios.post('http://localhost:3000/api/moodtracker/saveday', body, {
-			content: this.state.currentDayText,
-			mood: this.state.selectedMoods
+		// const attempt = await axios.post('http://localhost:3000/api/moodtracker/sentiment', body, {
+		// 	content: this.state.currentDayText,
+		// 	mood: this.state.selectedMoods
+		// });
+		await axios.post('http://localhost:3000/api/moodtracker/saveday', body, {
+			// content: this.state.currentDayText,
+			// mood: this.state.selectedMoods
 		});
 		this.getDays()
 		this.setState()
-		// 	loggedIn = true;
-		// }
-
-		// this.setState({
-		// 	loggedIn: loggedIn
-		// })
 
 	}
 
 	async componentDidMount() {
 		this.getDays();
-		// this.validateLogin()
 	}
 
 	async changeMood(mood, active) {
@@ -366,17 +350,18 @@ class MoodTracker extends Component {
 				<Navbar />
 
 				<section className="hero">
-					{/* <div> */}
 				  <div className="container flex-col">
 					<div className={moodStyles.splitScreen}>
 					<div className="dayswrapper w-full">
 					  <h1 className="title">Mood Tracker</h1>
+					  {this.state.happyThing &&
 					  <p>If you need something to do, try {this.state.happyThing}!</p>
+					  }
 					  <p className="description">
-						Hi! How was your day?
+						Hi {this.state.session.user.name.split(" ")[0]}! How was your day?
 					  </p>
-					  <p>Were you</p>
-					  {/* <Dropdown options={this.state.activities} title={this.state.selectedActivity} select={this.selectState}/> */}
+					  <p>Feel free to journal about your day here. Your journal is private, so only you will see it.</p>
+					  {/* <p>What did you do?</p> */}
 					  <h3>Activities:</h3>
 					  <div className={moodStyles.flexRow}>
 						{this.state.activities.map((option) => <ToggleButton label={option} change={this.changeActivity} /> )}
@@ -384,13 +369,14 @@ class MoodTracker extends Component {
 							<input placeholder="➕ Add an activity" className={moodStyles.addTag} onChange={this.changeNewTag}></input>
 						</form>
 					  </div>
+					  {/* <p>How did you feel?</p> */}
 					  <h3>Moods:</h3>
 					  <div className={moodStyles.flexRow}>
 						{this.state.options.map((option) => <ToggleButton label={option} change={this.changeMood} /> )}
 					  </div>
 					  <div>
 						  <form className="flex-col width-500">
-							  <textarea className={moodStyles.dayBox} placeholder="What did you do today?" onChange={this.handleTextChange}></textarea>
+							  <textarea className={moodStyles.dayBox} placeholder="Want to write a bit?" onChange={this.handleTextChange}></textarea>
 						  </form>
 					  </div>
 					  <div>
@@ -404,7 +390,7 @@ class MoodTracker extends Component {
 					  </div>
 				  </div>
 				  <div className={moodStyles.charts}>
-					<h2>Your mood:</h2>
+					<h2>Your moods:</h2>
 					<h3>This Week</h3>
 					{this.state.moodCountWeek && this.state.moodCountWeek.length ? 
 						<DataPieChart data={this.state.moodCountWeek} />
@@ -439,4 +425,4 @@ class MoodTracker extends Component {
 	
 }
 
-export default MoodTracker;
+// export default MoodTracker;

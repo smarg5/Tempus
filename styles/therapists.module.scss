@@ -1,22 +1,22 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
+$accent: #000000;
+// $accent: #29C9BF;
+$font: "Source Sans Pro", sans-serif;
+
 .findTherapistBox {
-  position: absolute;
-  width: 350px;
-  height: 50px;
-  left: 170px;
-  top: 156px;
-  background: #29C9BF;
+  background: $accent;
   display:inline-block;  
 
 
-  font-family: Roboto;
+  font-family: $font;
   font-style: normal;
-  font-weight: bold;
+  padding: 0px 15px;
+  // font-weight: bold;
   font-size: 26px;
   line-height: 0px;
   text-align: center;
-  color: #F3FFFF;
+  color: white;
 }
 
 .headerColor {
@@ -25,77 +25,77 @@
   height: 50px; 
 }
 
- #state{
-  position: absolute;
-  width: 370px;
-  height: 96px;
-  left: 120px;
-  top: 271px;
-  background: #29C9BF;
-}
+//  #state{
+//   position: absolute;
+//   // width: 370px;
+//   height: 96px;
+//   left: 120px;
+//   top: 271px;
+//   background: $accent;
+// }
 .Heading{
-  font-family: 'Roboto', sans-serif;
+  font-family: $font;
   font-size: 50px;
 }
 
 .links{
-  font-family: 'Roboto', sans-serif;
+  font-family: $font;
   font-size: 20px;
 }
 
 
-.stateBox {
-  position: absolute;
-  width: 780px;
-  height: 50px;
-  left: 500px;
-  top: 156px;
-  background: #f0f0f1;
-}
+// .stateBox {
+//   background: #f0f0f1;
+//   flex-grow: 4;
+// }
 
 .searchBox {
-  font-family: 'Roboto', sans-serif;
-  position: absolute;
-  width: 95px;
-  height: 40px;
-  left: 1280px;
-  top: 156px;
+  font-family: $font;
   text-align: center;
-  line-height: 8px;
+  // line-height: -10px;
+  padding-top: 5px;
   font-size: 30px;
-  background: #29C9BF;
+  // width: 100px;
+  // background: $accent;
 }
 
 .btn{
-  font-family: 'Roboto', sans-serif;
-  position: absolute;
-  width: 110px;
-  height: 50px;
-  left: -10px;
-  top: 0px;
-  text-align: center;
+  font-family: $font;
+  // text-align: center;
   line-height: 1px;
   font-size: 25px;
-  background: #29C9BF;
+  border: transparent;
+  // background: none;
+  background: none;
+  border-radius: 10px;
+  height: 40px;
+  width: 40px;
+
+  &:hover {
+    background: rgb(228, 228, 228) !important;
+  }
 }
 .placeholder { 
-  font-family: 'Roboto', sans-serif;
-  background: #f0f0f1;
-  color: #29C9BF;
-  width: 700px;
+  font-family: $font;
+  // background: #f0f0f1;
+  color: $accent;
+  // width: 100%;
+  flex-grow: 4;
   height: 48px;
-  position: absolute;
   font-style: normal;
   font-size: 20px;
-  text-align: center;
-  border: #f0f0f1;
+  width: 500px;
+  padding: 0px 20px;
+  border: none;
+  border-radius: 10px;
 
 }
 
 .table {
-  font-family: 'Roboto', sans-serif;
+  font-family: $font;
   text-align: center;
-  width: 80%;
+  width: 100%;
+  margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -116,4 +116,19 @@
 }
 .nth {
   background-color: #f2f2f2;
+}
+
+.icon {
+  cursor: pointer;
+}
+
+.searchBar {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 590px;
+  border: none;
+
+  box-shadow: 0px 4px 12px 0px rgba(0,0,0,0.2);
+  border-radius: 10px;
+
 }

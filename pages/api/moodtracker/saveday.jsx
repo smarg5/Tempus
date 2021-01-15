@@ -15,12 +15,12 @@ const client = new MongoClient(process.env.DATABASE_URL, {
 
 const dbName = 'day-db';
 
-function save(db, date, content, mood, activities, callback) {
+function save(db, userId, date, content, mood, activities, callback) {
   const collection = db.collection('days');
     console.log('start reached');
     collection.insertOne(
         {
-        userId: "test@gmail.com",
+        userId: userId,
         date: date,
         content: content,
         mood: mood,
@@ -51,9 +51,10 @@ export default (req, res) => {
       const content = req.body.content;
       const mood = req.body.moods;
       const activities = req.body.activities;
+      const userId = req.body.userId
       let day = new Date()
 
-      save(db, day, content, mood, activities, () => {})
+      save(db, userId, day, content, mood, activities, () => {})
 
     //   findUser(db, email, function(err, user) {
     //     if (err) {

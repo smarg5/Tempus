@@ -4,17 +4,24 @@ import Head from 'next/head'
 import fetch from 'isomorphic-unfetch';
 import useSWR from 'swr';
 import cookie from 'js-cookie';
+import { useSession } from 'next-auth/client';
 
 export default function Home(props) {
-  const {data, revalidate} = useSWR('/api/me', async function(args) {
-    const res = await fetch(args);
-    return res.json();
-  });
-  if (!data) return <h1>Loading...</h1>;
+
+
+  const [ session, loading ] = useSession()
+  console.log(session, "aslkdfjas")
+
+  let currentsession = session
+
+  if (typeof window !== 'undefined' && loading) return null
   let loggedIn = false;
-  if (data.email) {
-    loggedIn = true;
-  }
+  // if (!session) {
+  //   // loggedIn = true;
+  // }
+  // console.log(session.user.name)
+  let name = session ? session.user.name : ""
+
 
 
   return (
@@ -24,9 +31,9 @@ export default function Home(props) {
       </Head>
 
       <Navbar />
-     {loggedIn && (
+     {/* {loggedIn && (
       <>
-       <p>Welcome {data.email}!</p>
+       <p>Welcome {name}!</p>
         
         <button
           onClick={() => {
@@ -36,14 +43,14 @@ export default function Home(props) {
           Logout
         </button>
       </>
-    )}
+    )} */}
 
 {!loggedIn && (
       <section className="hero">
         <div className="container">
           <div className="text-wrapper">
 
-            <h1 className="title">Hi there, 
+            <h1 className="title">Hi there, {name}
             <br></br>Welcome to Tempus <span class="wave">👋</span>
           
             </h1>

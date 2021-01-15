@@ -32,8 +32,7 @@ body {
 .container {
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
-    margin: 60px auto;
+    margin: 40px auto;
     width: 66%;
     @media only screen and (max-width: 600px) {
         width: 80%;
@@ -43,7 +42,12 @@ body {
     }
 }
 
+.center {
+	justify-content: center;
+}
+
 .card {
+	border-radius: 20px;
     align-items: center;
     box-shadow: 0 10px 20px rgba(0, 0, 0, .4);
     display: flex;
@@ -172,6 +176,7 @@ a[href] {
 }
 
 .navbar {
+    background: white;
     margin-top: 50px;
     .container {
         display: flex;
@@ -227,8 +232,8 @@ a[href] {
         }
         .title {
             font-size: 48px;
-            margin-top: -70px;
-            margin-bottom: 10px;
+			margin-bottom: 10px;
+			margin-top: 0;
         }
         .description {
             font-size: 22px;
@@ -349,7 +354,13 @@ a[href] {
 }
 }
 
+button {
+	cursor: pointer;
+}
+
+
 .saveBtn{
+	cursor: pointer;
      width:80px;
      height:40px;
      background-color: black ;
@@ -388,11 +399,17 @@ textarea {
 .dayswrapper {
 	max-width: 500px;
     padding: 0;
-    padding-left: 15px;
+    // padding-left: 15px;
     margin-top: -10px;
     list-style: square;
     .contact-item {
         padding-top: 10px;
         padding-bottom: 10px;
     }
+}
+
+.title {
+	font-size: 48px;
+	margin-bottom: 10px;
+	margin-top: 0;
 }

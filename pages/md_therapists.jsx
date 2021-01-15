@@ -4,6 +4,7 @@ import utilStyles from '../../styles/utils.module.scss'
 import therapistStyles from '../../styles/therapists.module.scss'
 import React, {Component} from 'react';
 import { useHistory } from 'react-router-dom';
+import { Search } from 'react-feather';
 
 class Therapists extends Component{
     render(){
@@ -28,9 +29,10 @@ class Therapists extends Component{
                 </div>
 
                 <div className={therapistStyles.searchBox}> 
-                <a id = "button" href="#" class="btn btn-success btn-block search-button">
-                    <p> &#128269;</p>
-                </a>
+                    <Search />
+                {/* <a id = "button" href="#" class="btn btn-success btn-block search-button">
+                    <p> &#128269;</p> */}
+                {/* </a> */}
                 </div> 
             </div>
         </section> 

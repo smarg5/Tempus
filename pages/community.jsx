@@ -11,7 +11,6 @@ function Community() {
 
 			<Navbar />
 
-      <br></br><br></br>
         <h2><center>Tell us, what's on your mind?</center> </h2>
         <p><center>Don't worry, you don't have to log in to post, let it out</center></p>
         <p><center>Please be respectful though! We are all here trying to help :)</center></p>

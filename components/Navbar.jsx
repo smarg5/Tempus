@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { withRouter } from 'next/router';
+import { Router, withRouter } from 'next/router';
 import { signIn, signOut, useSession } from 'next-auth/client'
 
 function Navbar({ router }) {
@@ -9,10 +9,6 @@ function Navbar({ router }) {
     { text: 'Mood Tracker', href: '/moodtracker' },
     { text: 'Community', href: '/community' },
     { text: 'Therapists', href: '/therapists' },
-    // { text: 'Log In', href: '/login'},
-    // { text: 'Sign Up', href: '/signup'},
-
-    // { text: '', href: '' },
   ];
   const [ session, loading ] = useSession()
 
@@ -28,12 +24,18 @@ function Navbar({ router }) {
           )) }
           {!session && <>
             <li>
-              <a onClick={signIn} className={`nav-item ${ router.pathname == '/login' ? 'active' : '' }`}>Sign In</a>
+              {/* <a onClick={signIn} className={`nav-item ${ router.pathname == '/login' ? 'active' : '' }`}>Sign In</a> */}
+              <li><Link href='/login'><a className={`nav-item ${ router.pathname == '/login' ? 'active' : '' }`}>Sign In</a></Link></li>
             </li>
           </>}
           {session && <>
             <li>
-              <a onClick={signOut} className={`nav-item ${ router.pathname == '/login' ? 'active' : '' }`}>Sign Out</a>
+              <a onClick={ () => {
+
+                signOut()
+                Router.push('/');
+              }
+                } className={`nav-item ${ router.pathname == '/login' ? 'active' : '' }`}>Sign Out</a>
             </li>
           </>}
 

@@ -1,0 +1,43 @@
+.form {
+    // display: flex;
+    // flex-flow: col;
+}
+
+.textBox {
+    background: white;
+    font-size: medium;
+    border: solid black 2px;
+    border-radius: 10px;
+    padding: 10px 15px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    width: 250px;
+}
+
+.redirect {
+    margin-top: 20px;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 300px;
+}
+
+.card {
+    // box-shadow: 0px 4px 12px 0px rgba(0,0,0,0.2);
+    border-radius: 15px;
+    border: solid 1px rgb(165, 165, 165);
+    padding: 50px;
+}
+
+.login {
+    margin: 0;
+    font-size: 40px;
+}
+
+.inputLabel {
+    font-size: 16px;
+    margin-bottom: 0;
+    margin-top: 0;
+}
