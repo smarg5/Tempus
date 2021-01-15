@@ -50,7 +50,7 @@ export default function Home(props) {
         <div className="container">
           <div className="text-wrapper">
 
-            <h1 className="title">Hi there, {name}
+            <h1 className="title">Hi there, {name.split(" ")[0]}
             <br></br>Welcome to Tempus <span class="wave">👋</span>
           
             </h1>
