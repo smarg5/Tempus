@@ -1,4 +1,4 @@
-import Navbar from '../components/Navbar';
+import Navbar from './components/Navbar';
 import Head from 'next/head'
 import React, { Component, useState } from 'react';
 import moodStyles from '../styles/moodtracker.module.scss'

@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Navbar from '../components/Navbar';
+import Navbar from './components/Navbar';
 import utilStyles from '../styles/utils.module.scss'
 import loginStyles from '../styles/login.module.scss'
 import React, {useState} from 'react';
@@ -16,30 +16,7 @@ const Login = () => {
     e.preventDefault();
     signIn('credentials', {email: email, password: password})
     Router.push('/')
-    // //call api
-    // fetch('/api/auth', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify({
-    //     email,
-    //     password,
-    //   }),
-    // })
-    //   .then((r) => {
-    //     return r.json();
-    //   })
-    //   .then((data) => {
-    //     if (data && data.error) {
-    //       setLoginError(data.message);
-    //     }
-    //     if (data && data.token) {
-    //       //set cookie
-    //       cookie.set('token', data.token, {expires: 2});
-    //       Router.push('/');
-    //     }
-    //   });
+
   }
     return (
       <>

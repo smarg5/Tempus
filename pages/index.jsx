@@ -1,8 +1,6 @@
 import Link from 'next/link';
-import Navbar from '../components/Navbar';
+import Navbar from './components/Navbar';
 import Head from 'next/head'
-import fetch from 'isomorphic-unfetch';
-import useSWR from 'swr';
 import cookie from 'js-cookie';
 import { useSession } from 'next-auth/client';
 
@@ -12,15 +10,9 @@ export default function Home(props) {
   const [ session, loading ] = useSession()
   console.log(session, "aslkdfjas")
 
-  let currentsession = session
-
   if (typeof window !== 'undefined' && loading) return null
-  let loggedIn = false;
-  // if (!session) {
-  //   // loggedIn = true;
-  // }
-  // console.log(session.user.name)
   let name = session ? session.user.name : ""
+  let loggedIn = false;
 
 
 
@@ -31,7 +23,7 @@ export default function Home(props) {
       </Head>
 
       <Navbar />
-     {/* {loggedIn && (
+     {loggedIn && (
       <>
        <p>Welcome {name}!</p>
         
@@ -43,14 +35,14 @@ export default function Home(props) {
           Logout
         </button>
       </>
-    )} */}
+    )}
 
 {!loggedIn && (
       <section className="hero">
         <div className="container">
           <div className="text-wrapper">
 
-            <h1 className="title">Hi there, {name.split(" ")[0]}
+            <h1 className="title">Hi there, 
             <br></br>Welcome to Tempus <span class="wave">👋</span>
           
             </h1>
@@ -63,12 +55,8 @@ export default function Home(props) {
          
         {/* <>
           <Link href="/login">Login</Link>
-          <p>or</p>
-          <Link href="/signup">Sign Up</Link>
-        </> */}
-      
-      </section>
-      )}
+          <p>or</p> <Link href="/signup">Sign Up</Link> </> */} </section>
+                    )}
     </>
   );
 }

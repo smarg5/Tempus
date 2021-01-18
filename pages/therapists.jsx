@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Navbar from '../components/Navbar';
+import Navbar from './components/Navbar';
 import utilStyles from '../styles/utils.module.scss'
 import therapistStyles from '../styles/therapists.module.scss'
 import React, {Component} from 'react';

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import FlipMove from "react-flip-move"
-import Navbar from '../components/Navbar';
+import Navbar from './components/Navbar';
 import Head from 'next/head'
 import communityStyles from '../styles/community.module.scss'
 import therapistStyles from '../styles/therapists.module.scss'
