@@ -3,12 +3,10 @@ import Head from 'next/head'
 import React, { Component, useState } from 'react';
 import moodStyles from '../styles/moodtracker.module.scss'
 import axios from 'axios';
-import useSWR from 'swr';
 import {PieChart, Pie, Tooltip, BarChart, XAxis, YAxis, Legend, Bar} from 'recharts';
 import FlipMove from "react-flip-move"
 const moment = require('moment');
 import { useSession, getSession } from 'next-auth/client'
-import {useRouter} from 'next/router';
 import { LogIn } from 'react-feather';
 
 export default function MoodTracker(props) {
@@ -366,7 +364,7 @@ class MoodTrackerPage extends Component {
 					  <div className={moodStyles.flexRow}>
 						{this.state.activities.map((option) => <ToggleButton label={option} change={this.changeActivity} /> )}
 						<form onSubmit={(event) => this.addActivity(event)}>
-							<input placeholder="➕ Add an activity" className={moodStyles.addTag} onChange={this.changeNewTag}></input>
+							<input placeholder="➕ Custom activity" className={moodStyles.addTag} onChange={this.changeNewTag}></input>
 						</form>
 					  </div>
 					  {/* <p>How did you feel?</p> */}

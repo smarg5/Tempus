@@ -1,0 +1,9 @@
+.postbody {
+  margin: 1em 20%;
+}
+
+@media(max-width: 900px) {
+  .postbody {
+    margin: 1em;
+  }
+}

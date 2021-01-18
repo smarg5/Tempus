@@ -122,6 +122,7 @@ $font: "Source Sans Pro", sans-serif;
   cursor: pointer;
 }
 
+
 .searchBar {
   display: flex;
   flex-flow: row nowrap;
@@ -130,5 +131,10 @@ $font: "Source Sans Pro", sans-serif;
 
   box-shadow: 0px 4px 12px 0px rgba(0,0,0,0.2);
   border-radius: 10px;
+}
 
+.subtext {
+  margin-top: 15px;
+  margin-left: 2px;
+  color: rgb(110, 110, 110);
 }

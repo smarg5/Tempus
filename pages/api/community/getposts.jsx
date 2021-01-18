@@ -1,5 +1,3 @@
-import { DH_NOT_SUITABLE_GENERATOR } from 'constants';
-
 const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
 
@@ -10,11 +8,11 @@ const client = new MongoClient('mongodb+srv://mhApp:Tempus@cluster0.aodby.mongod
   useUnifiedTopology: true,
 });
 
-const dbName = 'day-db';
+const dbName = 'post-db';
 
-async function getDays(db, userId, callback) {
-  const collection = db.collection('days');
-  let result = await collection.find({userId: userId}).toArray()
+async function getPosts(db, callback) {
+  const collection = db.collection('posts');
+  let result = await collection.find().sort({date:-1}).toArray()
   callback(result)
   return result
 }
@@ -27,8 +25,8 @@ export default (req, res) => {
       console.log('Connected to MongoDB server =>');
       const db = client.db(dbName);
 
-      let ret = getDays(db, req.body.userId, (result)=>{
-        res.send({days: result, test: "this is a test" })
+      let ret = getPosts(db,(result)=>{
+        res.send({posts: result, test: "this is a test" })
       })
 
     });

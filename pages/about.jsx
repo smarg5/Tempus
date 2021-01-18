@@ -25,7 +25,7 @@ function About() {
 <div id="cubeContainer">
 	<div id="cubeWrapper">
 		<div class="head">
-			<h1>MEET THE TEAM</h1>
+			<h1>Meet the Team</h1>
       <p className="description">
       We are a group of student developers who wanted to create a safe digital place for your mental health. Check us out!
       </p>
@@ -88,6 +88,7 @@ function About() {
    <div class="card card--split-3">
     <div class="card__pic">
      <span class="card__placeholder">
+     <img src="/images/simone.png" alt="me" width="228" height="228" />
    </span>
     </div>
     <h2 class="card__headline card__headline--centered">Simone</h2>

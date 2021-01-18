@@ -5,6 +5,7 @@ import therapistStyles from '../styles/therapists.module.scss'
 import React, {Component} from 'react';
 import { useMediaPredicate } from 'react-media-hook';
 import MdSearch from 'react-ionicons/lib/MdSearch'
+import { Tooltip } from 'reactstrap';
 
  
 class Therapists extends Component {
@@ -1068,7 +1069,10 @@ class Therapists extends Component {
 
                         <div className="text-wrapper w-full">
                             <h1 className="title">Find a Therapist</h1>
-                            <div className={therapistStyles.searchBar} >
+                            {/* <h3>
+                                Find a Therapist near you by inputting your state's acronym (only applicable in the United States).
+                            </h3> */}
+                            <div id="searchbar" className={therapistStyles.searchBar} >
                                 {/* <div className={therapistStyles.findTherapistBox}>
                                     <p> FIND A THERAPIST </p>
                                 </div> */}
@@ -1086,7 +1090,11 @@ class Therapists extends Component {
                                     </button>
                                 </div>
                             </div>
+                            {/* <Tooltip delay={0} placement="top" target="searchbar">
+                                Only applicable in the US.
+                            </Tooltip> */}
                     </div>
+                    <div className={therapistStyles.subtext}>Only applicable in the US</div>
                         <table className={therapistStyles.table}>
                             <TableHeaders headers = {headers} />
                             <tbody>
@@ -1095,7 +1103,6 @@ class Therapists extends Component {
                                 }
                             </tbody>
                         </table>
-                        
                 </div>
             </div> 
             </>
