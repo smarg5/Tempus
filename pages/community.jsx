@@ -47,7 +47,7 @@ class Community extends Component {
 
   async getPosts() {
     var body = {}
-    const attempt = await axios.post('http://localhost:3000/api/community/getposts', body, {
+    const attempt = await axios.post('http://tempusio.netlify.app/api/community/getposts', body, {
     });
     this.setState({
       posts: attempt.data.posts.slice(0, 3),
@@ -58,7 +58,7 @@ class Community extends Component {
     var body = {
       content: this.state.content,
     }
-    await axios.post('http://localhost:3000/api/community/submitpost', body, {
+    await axios.post('http://tempusio.netlify.app/api/community/submitpost', body, {
   });
   }
 

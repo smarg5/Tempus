@@ -131,7 +131,7 @@ class MoodTrackerPage extends Component {
 			userId: this.state.session.user.email,
 			test: "this does not matter"
 		}
-		const attempt = await axios.post('http://localhost:3000/api/moodtracker/gethistory', body, {
+		const attempt = await axios.post('https://tempusio.netlify.app/api/moodtracker/gethistory', body, {
 			content: this.state.currentDayText,
 			mood: this.state.selectedMoods
 		});
