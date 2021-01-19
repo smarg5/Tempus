@@ -273,7 +273,7 @@ class MoodTrackerPage extends Component {
 		// 	content: this.state.currentDayText,
 		// 	mood: this.state.selectedMoods
 		// });
-		await axios.post('http://localhost:3000/api/moodtracker/saveday', body, {
+		await axios.post('https://localhost:3000/api/moodtracker/saveday', body, {
 			// content: this.state.currentDayText,
 			// mood: this.state.selectedMoods
 		});
