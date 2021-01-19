@@ -57,7 +57,7 @@ export default function Home(props) {
           <br></br>
 <br></br>
             <h1 className="title">Hi there, {name.split(" ")[0]}
-            <br></br>Welcome to Tempus <span class="wave">👋</span>
+            <br></br>Welcome to Tempus <span class="wave"></span>
           
             </h1>
             <p className="description">Join our supportive community. You are not alone!</p>
@@ -66,7 +66,7 @@ export default function Home(props) {
             <Link href="/about"><a className="cta">Learn More</a></Link>
           </div> </div>
           </div>     <div className={moodStyles.flexRow}>
-          <img src="/images/STOCK.png" alt="me" width="480" height="450" />
+          <img src="/images/STOCK.png" alt="me" width="490" height="350" />
 </div>
      
 </div>
