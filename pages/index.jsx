@@ -49,13 +49,14 @@ export default function Home(props) {
       <section className="hero">
         <div className="container">
           <div className="text-wrapper">
-
+          <br></br>
+<br></br>
             <h1 className="title">Hi there, {name.split(" ")[0]}
             <br></br>Welcome to Tempus <span class="wave">👋</span>
           
             </h1>
-            <p className="description">Join our supportive community. You are not alone.</p>
-            <p className="description">Interact with our mood tracker, blog platform, therapist locator, and sign up to store your information!</p>
+            <p className="description">Join our supportive community. You are not alone!</p>
+            <p className="description">Interact with our mood tracker, community platform, therapist locator. Sign up to store your information.</p>
 
             <Link href="/about"><a className="cta">Learn More</a></Link>
           </div> </div>
