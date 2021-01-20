@@ -2,11 +2,8 @@ import { strictEqual } from 'assert';
 
 const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
-const bcrypt = require('bcrypt');
 const v4 = require('uuid').v4;
-const jwt = require('jsonwebtoken');
 require('dotenv').config()
-const jwtSecret = 'SUPERSECRETE20220';
 var sha256 = require('js-sha256')
 
 

@@ -1,5 +1,5 @@
 const MongoClient = require('mongodb').MongoClient;
-const assert = require('assert');
+// const assert = require('assert');
 
 console.log(process.env.DATABASE_URL)
 console.log(process.env)
@@ -20,7 +20,7 @@ function save(db, date, content) {
         content: content,
         },
         function(err, userCreated) {
-        assert.equal(err, null);
+        // assert.equal(err, null);
         },
     );
     console.log('end reached');
@@ -29,7 +29,7 @@ function save(db, date, content) {
 export default (req, res) => {
   if (req.method === 'POST') {
     client.connect(function(err) {
-      assert.equal(null, err);
+      // assert.equal(null, err);
       console.log('Connected to MongoDB server =>');
       const db = client.db(dbName);
       const content = req.body.content;

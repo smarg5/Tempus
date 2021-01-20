@@ -1,13 +1,4 @@
 const MongoClient = require('mongodb').MongoClient;
-const assert = require('assert');
-const v4 = require('uuid').v4;
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken')
-
-
-console.log(process.env.DATABASE_URL)
-console.log(process.env)
-
 const client = new MongoClient(process.env.DATABASE_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -27,7 +18,6 @@ function save(db, userId, date, content, mood, activities, callback) {
         activities: activities,
         },
         function(err, userCreated) {
-        assert.equal(err, null);
         },
     );
     console.log('end reached');
@@ -45,7 +35,6 @@ export default (req, res) => {
 
     // verify email does not exist already
     client.connect(function(err) {
-      assert.equal(null, err);
       console.log('Connected to MongoDB server =>');
       const db = client.db(dbName);
       const content = req.body.content;
