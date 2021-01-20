@@ -7,15 +7,30 @@ import {PieChart, Pie, Tooltip, BarChart, XAxis, YAxis, Legend, Bar} from 'recha
 import FlipMove from "react-flip-move"
 const moment = require('moment');
 import { useSession, getSession } from 'next-auth/client'
-import { LogIn } from 'react-feather';
 
 export default function MoodTracker(props) {
   const [ session, loading ] = useSession()
 
   if (typeof window !== 'undefined' && loading) return null
   if (!session) {
-	  return <LogIn />
+	  return (
+			<>
+				<Head>
+					<title>Mood Tracker</title>
+				</Head>
+				<Navbar />
 
+				<section className="hero">
+					<div className="container">
+						<div className="text-wrapper">
+							<div>You need to be logged in to access this page!</div>
+							<a href="/login">Log in here.</a>
+						</div>
+					</div>
+				</section>
+			</>
+
+	  )
   }
 
   return (

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Navbar from '../components/Navbar';
+import Navbar from './components/Navbar';
 import Head from 'next/head'
 import fetch from 'isomorphic-unfetch';
 import moodStyles from '../styles/moodtracker.module.scss'
@@ -66,7 +66,7 @@ export default function Home(props) {
             <Link href="/about"><a className="cta">Learn More</a></Link>
           </div> </div>
           </div>     <div className={moodStyles.flexRow}>
-          <img src="/images/STOCK.png" alt="me" width="490" height="350" />
+          <img className="landingImage" src="/images/STOCK.png" alt="me" width="490" height="350" />
 </div>
      
 </div>
