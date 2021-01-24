@@ -34,7 +34,7 @@ const SignUp = () => {
         name: name,
       }),
     })
-    signIn('credentials', {email: username, password: password})
+    signIn('credentials', {callbackUrl: 'https://tempusio.herokuapp.com', email: username, password: password})
     Router.push('/')
     // Router.push('/login')
     //   .then((r) => {

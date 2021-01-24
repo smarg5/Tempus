@@ -14,7 +14,7 @@ const Login = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    signIn('credentials', {email: email, password: password})
+    signIn('credentials', { callbackUrl: 'https://tempusio.herokuapp.com', email: email, password: password})
     Router.push('/')
 
   }

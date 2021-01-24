@@ -146,7 +146,7 @@ class MoodTrackerPage extends Component {
 			userId: this.state.session.user.email,
 			test: "this does not matter"
 		}
-		const attempt = await axios.post('https://tempusio.netlify.app/api/moodtracker/gethistory', body, {
+		const attempt = await axios.post('https://tempusio.herokuapp.com/api/moodtracker/gethistory', body, {
 			content: this.state.currentDayText,
 			mood: this.state.selectedMoods
 		});
@@ -288,7 +288,7 @@ class MoodTrackerPage extends Component {
 		// 	content: this.state.currentDayText,
 		// 	mood: this.state.selectedMoods
 		// });
-		await axios.post('https://localhost:3000/api/moodtracker/saveday', body, {
+		await axios.post('https://tempusio.herokuapp.com/api/moodtracker/saveday', body, {
 			// content: this.state.currentDayText,
 			// mood: this.state.selectedMoods
 		});
