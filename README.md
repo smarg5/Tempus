@@ -1,12 +1,11 @@
 # Tempus
 https://tempusio.herokuapp.com/
-``````
+
 A website to help people manage their anxiety.	A website to help people effectively manage their mental health (not a solution, just a resource :)).
 
 ## Getting Started
 First, run the development server:
 
-``````
 ``````
 npm install
 npm i react-media-hook --save
